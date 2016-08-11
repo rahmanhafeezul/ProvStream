@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Constraints>
+	<node>
+            <!-- The attributes of the src node which is of interest from the streaming
+                 provenance graph generated in time  -->
+		<nodeType>source</nodeType>
+                <category>server</category>
+                <ownerType>DataOwner</ownerType>
+                <status>Active</status>
+		<timestamp>08-08-2016;17:20:34</timestamp>
+	</node>
+	<node>
+            <!-- The attributes of the destination node which is of interest from the streaming
+                 provenance graph generated in time  -->
+		<nodeType>destination</nodeType>
+                <category>client</category>
+                <ownerType>ThirdParty</ownerType>
+                <status>Active</status>
+		<timestamp>08-08-2016;23:56:34</timestamp>
+	</node>
+	<node>
+            <!-- The attributes of the intermediate node which the path from src to destination
+                 has to pass through            -->
+		<nodeType>intermediate</nodeType>
+                <category>server</category>
+                <status>Active</status>
+                <ownerType>ThirdParty</ownerType>
+		<timestamp>08-08-2016;19:45:36</timestamp>
+	</node>
+        <condition>
+            <!-- The conditions on the properties which the intermediate node has to satisfy
+                 before the destination is reached.
+                 The tag here can only be one of the tags already defined when the src and 
+                 destination were defined.
+                 range: "=" denotes the attributes that the intermediate node should have
+                 range: ">/</>=/<=" denote the quality(difference in timestamps here) that the path from src to destination
+                 should possess.            -->
+                <timestamp range=">">03:00:00"</timestamp>
+        </condition>
+</Constraints>
+
+
+<!--
+Translation of the several complinace recommendations mentioned in
+http://www.cl.cam.ac.uk/research/srg/opera/publications/papers/2016-IC2Eclaw.pdf
+in Section IV to the XML constraint format.
+
+Recommendation 1: Data from src to destination has to pass through
+                  an intermediate node which should be of the type 
+                  'Anonymization'
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Constraints>
+	<node>
+		<nodeType>source</nodeType>
+                <ownerType>DataOwner</ownerType>
+	</node>
+	<node>
+		<nodeType>destination</nodeType>
+                <ownerType>ThirdParty</ownerType>
+	</node>
+	<node>
+		<nodeType>intermediate</nodeType>
+                <category>Anonymization</category>
+	</node>
+        <condition>
+                <category range="=">Anonymization</category>
+        </condition>
+</Constraints>
+
+Recommendation 2: Personal data from any src to destination can be transferred
+                  once after you receive consent.
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Constraints>
+	<node>
+		<nodeType>source</nodeType>
+	</node>
+	<node>
+		<nodeType>destination</nodeType>
+	</node>
+	<node>
+		<nodeType>intermediate</nodeType>
+                <category>Consent</category>
+	</node>
+        <condition>
+                <category range="=">Consent</category>
+        </condition>
+</Constraints>
+
+
+Recommendation 3: A terminated contract should either be deleted, anonymized 
+                  or archived.
+                  This could be split into 3 such conditions, one for delete, 
+                  anonymize and one for archive.
+XML File 1:                  
+<?xml version="1.0" encoding="UTF-8"?>
+<Constraints>
+	<node>
+		<nodeType>source</nodeType>
+                <status>Active</ownerType>
+	</node>
+	<node>
+		<nodeType>destination</nodeType>
+                <status>Terminated</ownerType>
+	</node>
+	<node>
+		<nodeType>intermediate</nodeType>
+                <category>Anonymization</category>
+	</node>
+        <condition>
+                <category range="=">Anonymization</category>                
+        </condition>
+</Constraints>
+
+XML File 2:
+<?xml version="1.0" encoding="UTF-8"?>
+<Constraints>
+	<node>
+		<nodeType>source</nodeType>
+                <status>Active</ownerType>
+	</node>
+	<node>
+		<nodeType>destination</nodeType>
+                <status>Terminated</ownerType>
+	</node>
+	<node>
+		<nodeType>intermediate</nodeType>
+                <category>Delete</category>
+	</node>
+        <condition>
+                <category range="=">Delete</category>                
+        </condition>
+</Constraints>
+
+XML File 3:
+<?xml version="1.0" encoding="UTF-8"?>
+<Constraints>
+	<node>
+		<nodeType>source</nodeType>
+                <status>Active</ownerType>
+	</node>
+	<node>
+		<nodeType>destination</nodeType>
+                <status>Terminated</ownerType>
+	</node>
+	<node>
+		<nodeType>intermediate</nodeType>
+                <category>Archive</category>
+	</node>
+        <condition>
+                <category range="=">Archive</category>                
+        </condition>
+</Constraints>
+
+Recommendation 4: Data has to be aggregated between src and destination
+                  if they differ in their timestamps by more than 3 hours.
+<?xml version="1.0" encoding="UTF-8"?>
+<Constraints>
+	<node>
+		<nodeType>source</nodeType>
+                <status>Active</ownerType>
+                <timestamp>08-08-2016;17:20:34</timestamp>
+                
+	</node>
+	<node>
+		<nodeType>destination</nodeType>
+                <status>Active</ownerType>
+                <timestamp>08-08-2016;23:56:34</timestamp>
+	</node>
+	<node>
+		<nodeType>intermediate</nodeType>
+                <category>Aggregation</category>
+                <timestamp>08-08-2016;23:56:34</timestamp>
+	</node>
+        <condition>
+                <timestamp range=">">03:00:00</category>                
+        </condition>
+</Constraints>
+-->
+
