@@ -23,7 +23,7 @@ public class ProvenanceStream {
         // TODO code application logic here
         
 
-		Graph graph = new SingleGraph("Tutorial 1");
+		Graph graph = new SingleGraph("CLustering");
 		graph.addNode("A");
 		graph.addNode("B");
 		graph.addNode("C");
