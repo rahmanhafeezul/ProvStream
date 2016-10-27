@@ -1,5 +1,5 @@
 DGS004
-triangledpm 0 6
+triangledpm 0 0
 
 an A label:"/home/out01.txt"
 an B 
@@ -12,3 +12,5 @@ ae E4 B > E label:"used"
 an D label:"/home/in-apple.txt"
 ae E5 B > D label:"used"
 ae E6 A > D label:"wasDerivedFrom"
+an F label:"/home/in-apple-F.txt"
+ae E7 D > F label:"wasDerivedFrom"

@@ -8,8 +8,6 @@ import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.DefaultGraph;
 import org.graphstream.stream.file.FileSource;
 import org.graphstream.stream.file.FileSourceFactory;
-import java.util.ArrayList;
- import java.util.Iterator;
  import java.util.List;
  
  import org.graphstream.algorithm.Dijkstra;
@@ -59,16 +57,22 @@ public class NonInterference{
                 }
         
     }
-    public static void main(String[] args)throws Exception {
-                g.display(); 
+    public static void compute(String a, String b)throws Exception{
+        g.display(); 
                 while (fs.nextEvents()) {
                         for (Node node : g) {
                                 node.addAttribute("ui.label", node.getId());
+                                
+                                }
                                 System.out.println("*********************");
 
-                                computeGraph_Non_Interference("B", "E");
-                                }
+                                computeGraph_Non_Interference(a, b);
 				Thread.sleep(3000);                                
 			}
+                computeGraph_Non_Interference(a, b);
 	}
+    
+    public static void main(String[] args)throws Exception {
+                compute("A", "B");
  }
+}
