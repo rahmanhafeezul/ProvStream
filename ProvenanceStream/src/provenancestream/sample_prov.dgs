@@ -1,0 +1,14 @@
+DGS004
+triangledpm 0 6
+
+an A label:"/home/out01.txt"
+an B 
+ae E1 A > B label:"wasGeneratedBy"
+an C label:"/home/in-priest.txt"
+ae E2 A > C label:"wasDerivedFrom"
+ae E3 B > C label:"used"
+an E label:"/usr/local/locale-archive"
+ae E4 B > E label:"used"
+an D label:"/home/in-apple.txt"
+ae E5 B > D label:"used"
+ae E6 A > D label:"wasDerivedFrom"

@@ -12,11 +12,11 @@ import org.graphstream.stream.file.FileSourceFactory;
  */
 public class StreamEmulate {
     public static void main(String[] args) throws Exception {
-		String filePath = "/home/rahman/NetBeansProjects/rahman-project/ProvenanceStream/sample_prov.dgs";
+		String filePath = "D:\\Courses\\sem 9\\MTP\\rahman-project\\ProvenanceStream\\src\\provenancestream\\sample_prov.dgs";
 		Graph g = new DefaultGraph("ProvStream");
 		FileSource fs = FileSourceFactory.sourceFor(filePath);
                 fs.addSink(g);
-                g.addAttribute("ui.stylesheet", "node { text-mode: normal; text-style: bold; fill-color: blue;}");
+                g.addAttribute("ui.stylesheet", "node { shape: box; text-mode: normal; text-style: bold; fill-color: blue;}");
                 g.display();                
 		fs.begin(filePath);
 		while (fs.nextEvents()) {
