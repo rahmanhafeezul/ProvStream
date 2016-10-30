@@ -3,14 +3,14 @@ triangledpm 0 0
 
 an A label:"/home/out01.txt"
 an B 
-ae E1 A > B label:"wasGeneratedBy"
+ae E1 A > B label:"wasGeneratedBy" length:1
 an C label:"/home/in-priest.txt"
-ae E2 A > C label:"wasDerivedFrom"
-ae E3 B > C label:"used"
-an E label:"/usr/local/locale-archive"
-ae E4 B > E label:"used"
+ae E2 A > C label:"wasDerivedFrom" length:1
+ae E3 B > C label:"used" length:1
+an E label:"/usr/local/locale-archive" length:1
+ae E4 B > E label:"used" length:1
 an D label:"/home/in-apple.txt"
-ae E5 B > D label:"used"
-ae E6 A > D label:"wasDerivedFrom"
+ae E5 B > D label:"used" length:1
+ae E6 A > D label:"wasDerivedFrom" length:1
 an F label:"/home/in-apple-F.txt"
-ae E7 D > F label:"wasDerivedFrom"
+ae E7 D > F label:"wasDerivedFrom" length:1
