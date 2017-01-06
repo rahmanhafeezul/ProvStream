@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package provenancestream;
+import java.util.Iterator;
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.DefaultGraph;
 import org.graphstream.stream.file.FileSource;
@@ -41,38 +42,45 @@ public class TrustedDeclassification{
                 dijkstra_2.setSource(g.getNode(b));
                 dijkstra_2.compute();
 
-		for (Node node : g)
-			System.out.printf("%s->%s:%10.2f%n", dijkstra_1.getSource(), node,
-					dijkstra_1.getPathLength(node));
-                for (Node node : g)
-			System.out.printf("%s->%s:%10.2f%n", dijkstra_2.getSource(), node,
-					dijkstra_2.getPathLength(node));
+//		for (Node node : g)
+//			System.out.printf("%s->%s:%10.2f%n", dijkstra_1.getSource(), node,
+//					dijkstra_1.getPathLength(node));
+//                for (Node node : g)
+//			System.out.printf("%s->%s:%10.2f%n", dijkstra_2.getSource(), node,
+//					dijkstra_2.getPathLength(node));
                 List<Node> list_1 = dijkstra_1.getPath(g.getNode(b)).getNodePath();
                 List<Node> list_2 = dijkstra_2.getPath(g.getNode(c)).getNodePath();
+                System.out.println("list1:"+list_1);
+                System.out.println("list2:"+list_2);
+                List<Node> list_3 = list_1;
+                List<Node> list_4 = list_2;
                 list_1.remove(g.getNode(a));
                 list_1.remove(g.getNode(b));
                 list_2.remove(g.getNode(b));
                 list_2.remove(g.getNode(c));
-                if(list_1.size()>=1 || list_2.size()>=1){
-                for (Node node : dijkstra_1.getPathNodes(g.getNode(b)))
-			node.addAttribute("ui.style", "fill-color: red;");
+                System.out.println("list1 edit:"+list_1);
+                System.out.println("list2 edit:"+list_2);
+               if(list_1.size()>=1 || list_2.size()>=1){
+                    for (Node node : list_3) {
+                        node.addAttribute("ui.style", "fill-color: red;");
+                    }
 
                 for (Edge edge : dijkstra_1.getPathEdges(g.getNode(b)))
 			edge.addAttribute("ui.style", "fill-color: red;");
-                for (Node node : dijkstra_2.getPathNodes(g.getNode(c)))
+                for (Node node : list_4)
 			node.addAttribute("ui.style", "fill-color: red;");
 
                 for (Edge edge : dijkstra_2.getPathEdges(g.getNode(c)))
 			edge.addAttribute("ui.style", "fill-color: red;");
-                }
-		System.out.println(dijkstra_1.getPath(g.getNode(b)));
-                System.out.println(dijkstra_2.getPath(g.getNode(b)));
+                
+		//System.out.println(dijkstra_1.getPath(g.getNode(b)));
+                //System.out.println(dijkstra_2.getPath(g.getNode(b)));
 
 		
 
 		dijkstra_1.clear();
                 dijkstra_2.clear();
-                }
+                }}
                 catch(Exception e)
                 {
                 }
@@ -86,13 +94,13 @@ public class TrustedDeclassification{
                                 node.addAttribute("ui.label", node.getId());                                
                                }
                                 System.out.println("*********************");
-                                computeGraph_Trusted_Declassification(a, b, c);
+                                //computeGraph_Trusted_Declassification(a, b, c);
 				Thread.sleep(3000);                                
 			}
-                computeGraph_Trusted_Declassification(a, b, c);
+                //computeGraph_Trusted_Declassification(a, b, c);
         
     }
     public static void main(String[] args)throws Exception {
-                compute("A","B","E");
+                compute("A","D","F");
 	}
  }

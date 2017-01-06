@@ -40,8 +40,9 @@ public class NonInterference{
 			System.out.printf("%s->%s:%10.2f%n", dijkstra.getSource(), node,
 					dijkstra.getPathLength(node));
 
-                for (Node node : dijkstra.getPathNodes(g.getNode(b)))
+                for (Node node : dijkstra.getPathNodes(g.getNode(B)))
 			node.addAttribute("ui.style", "fill-color: red;");
+                for (Node node: dijkstra.getPathNodes(g.getNode("B")))
 
                 for (Edge edge : dijkstra.getPathEdges(g.getNode(b)))
 			edge.addAttribute("ui.style", "fill-color: red;");
@@ -73,6 +74,6 @@ public class NonInterference{
 	}
     
     public static void main(String[] args)throws Exception {
-                compute("A", "B");
+                compute("A", "F");
  }
 }

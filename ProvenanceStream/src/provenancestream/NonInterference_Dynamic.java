@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package provenancestream;
-import org.graphstream.algorithm.networksimplex.DynamicOneToAllShortestPath;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
@@ -15,10 +14,10 @@ import org.graphstream.stream.file.FileSourceFactory;
  *
  * @author HafeezulRahman
  */
-public class NonInterference_Simplex {
+public class NonInterference_Dynamic {
     private static String filePath="D:\\Courses\\sem 9\\MTP\\rahman-project\\ProvenanceStream\\src\\provenancestream\\sample_prov.dgs";;
     private static Graph g = new DefaultGraph("ProvStream");
-    private static DynamicOneToAllShortestPath d = new DynamicOneToAllShortestPath("length");
+    private static ShortestPathAlgo d = new ShortestPathAlgo("length");
     private static FileSource fs; 
     static{try{
     fs = FileSourceFactory.sourceFor(filePath);
@@ -69,7 +68,7 @@ public class NonInterference_Simplex {
         }
     
     public static void main(String[] args)throws Exception{
-        compute("B", "D");
+        compute("B", "E");
     }
     }   
 
