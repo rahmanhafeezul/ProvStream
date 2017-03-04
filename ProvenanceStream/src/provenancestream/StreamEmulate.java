@@ -8,7 +8,7 @@ import org.graphstream.stream.file.FileSource;
 import org.graphstream.stream.file.FileSourceFactory;
 /**
  *
- * @author rahman
+ * @author HafeezulRahman
  */
 public class StreamEmulate {
     public static void main(String[] args) throws Exception {

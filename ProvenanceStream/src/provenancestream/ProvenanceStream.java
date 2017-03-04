@@ -8,7 +8,7 @@ import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
 /**
  *
- * @author rahman
+ * @author Hafeezul Rahman
  */
 public class ProvenanceStream {
 
